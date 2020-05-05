@@ -5,8 +5,12 @@
     <Banner />
     <About />
     <Plans />
-    <Market />
-    <Testimonials />
+    <VideoSection />
+    <Analysis />
+    <Leaderboard />
+    <Trade />
+    <!-- <Market /> -->
+    <!-- <Testimonials /> -->
     <!-- <AppBanner /> -->
     <Footer />
   </div>
@@ -19,6 +23,10 @@ import Navbar from '@/components/Navbar.vue'
 import Banner from '@/components/Banner.vue'
 import About from '@/components/About.vue'
 import Plans from '@/components/Plans.vue'
+import VideoSection from '@/components/VideoSection.vue'
+import Analysis from '@/components/Analysis.vue'
+import Leaderboard from '@/components/Leaderboard.vue'
+import Trade from '@/components/Trade.vue'
 import Market from '@/components/Market.vue'
 import Testimonials from '@/components/Testimonials.vue'
 import AppBanner from '@/components/AppBanner.vue'
@@ -31,6 +39,10 @@ export default {
     Banner,
     About,
     Plans,
+    VideoSection,
+    Analysis,
+    Leaderboard,
+    Trade,
     Market,
     Testimonials,
     AppBanner,

@@ -1,44 +1,53 @@
 <template>
   <footer class="footer">
       <div class="container">
-          <div class="row">
-              <div class="col-md-3"></div>
-              <div class="col-md-6 text-center">
-                  <h4>Subscribe to our newsletter to always be in the loop!</h4>
-                  <form action="">
-                         <input type="email" class="form-control" placeholder="typeyouremail@gmail.com">
-                         <button type="submit" class="form__btn">Subscibe</button>
-                  </form>
-              </div>
-              <div class="col-md-3"></div>
-          </div>
-          <div class="content">
-              <div class="content__card">
-                  <h6>Company</h6>
-                  <p><router-link to="/about">About</router-link></p>
-                  <!-- <p><router-link to="/terms">Terms & Conditions</router-link></p> -->
-                  <!-- <p><router-link to="/about">ABOUT</router-link></p> -->
-              </div>
-             <div class="content__card">
-                  <h6>Discover</h6>
-                  <p><router-link to="/contact">Contact Us</router-link></p>
-                  <!-- <p><router-link to="/about">Our Blog</router-link></p> -->
-                  <!-- <p><router-link to="/about">ABOUT</router-link></p> -->
-              </div>
-               <div class="content__card">
-                  <h6>Connect</h6>
-                  <p><a href="">Facebook</a></p>
-                  <p><a href="">Instagram</a></p>
-                  <!-- <p><router-link to="/about">ABOUT</router-link></p> -->
-              </div>
-              <div class="content__card">
-                  <p>115 Lairg Road, NEWCHURCH, UK</p>
-              </div>
-          </div>
-          <hr>
-          <div class="footer__bottom text-center">
-              <small>We are a small group of profitable trders that crowdfund resources from our invetors to trade the financial markets and provide returns on a weekly basis. Please take time to read our terms and condition page before you invest your money so you have a working idea of how it works. For any questions or enquiry, kindly use the livechat widget below as a customer care agent is always handy to repond to you. Also, no payment should be made outside of the accounts provided as you would be doing so at your own risk. Happy investing.</small>
-          </div>
+         <div class="row">
+             <div class="col-md-5">
+                 <div class="row">
+                     <div class="col-md-4">
+                         <h6>About Us</h6>
+                         <p><router-link to="/">Asset Index</router-link></p>
+                         <p><router-link to="/">Glossary</router-link></p>
+                         <p><router-link to="/">FAQ</router-link></p>
+                        <p><router-link to="/">Contact Us</router-link></p>
+                     </div>
+                      <div class="col-md-4">
+                         <h6>Start trading</h6>
+                         <p><router-link to="/">Open account</router-link></p>
+                        <p><router-link to="/">Tradings</router-link></p>
+                       <p><router-link to="/">Account types</router-link></p>
+                     </div>
+                      <div class="col-md-4">
+                         <h6>Legal</h6>
+                        <p><router-link to="/">Terms & Conditions</router-link></p>
+                         <p><router-link to="/">Privacy Policy</router-link></p>
+                         <p><router-link to="/">FAQs</router-link></p>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-md-2"></div>
+             <div class="col-md-2 text-center contact">
+                 <h6>Head Office: Westfield Liverpool, Macquarie St, Liverpool NSW 2170</h6>
+                 <h6 span class="span">Terms of Use <br> Privacy Policy</h6>
+                 <img src="../assets/images/shield.png" class="img-fluid" alt="">
+             </div>
+             <div class="col-md-3">
+                 <form action="">
+                     <input type="text" class="form-control" placeholder="*Full Name">
+                     <input type="email" class="form-control" placeholder="*Email Address">
+                     <input type="text" class="form-control" placeholder="*Subject">
+                     <textarea name="" id="" cols="20" rows="5" class="form-control">
+                         Send a mail to info@dynamicinvestment.com
+                     </textarea>
+                     <button type="submit" class="form__btn">SEND</button>
+                 </form>
+             </div>
+         </div>
+         <div class="row pt-3">
+             <div class="col-12 text-center">
+                 <small>CFDs trading involves significant risk. We strongly advise that you read our Terms & Conditions. Although the risk when trading CFDs is fixed for each individual trade, the trades are live and it is possible to lose an initial investment, particularly if a trader chooses to place his entire investment to a single live trade. It is highly recommended that traders choose a proper money management strategy which limits the total consecutive trades or total outstanding investment.</small>
+             </div>
+         </div>
       </div>
   </footer>
 </template>
@@ -57,62 +66,51 @@ export default {
     background-size: cover;
     color: #fff;
     padding: 5rem 0;
-    h4{
-        color: $secondary-color;
+    h6{
+        padding-bottom: 1rem;
+        padding-top: 1rem;
     }
-    form{
-        display: flex;
-        justify-content: space-between;
-        margin-top: 1.5rem;
-        input{
-            flex: 10;
-            height: 3rem;
-            box-shadow: none;
-            outline: none;
-            &::placeholder{
-                font-weight: bold;
-                color: #627081;
-                opacity: .8;
-            }
-        }
-        .form__btn{
-            flex: 2;
-            background: $secondary-color;
-            margin-left: 2rem;
-            border-radius: 3px;
-            border: none;
-            padding: 0 2rem;
+    p{
+        line-height: 1 !important;
+        a{
             color: #fff;
+            text-decoration: none;
+            font-size: .85rem;
+            opacity: .8;
         }
     }
-    .content{
-        padding-top: 6rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        grid-gap: 30px;
+    .contact{
+        border-left: 1px solid #333;
         h6{
-            // font-weight: bold;
-            font-size: 1rem;
-            padding-bottom: 2rem;
+            font-size: .9rem;
+        }
+        .span{
             color: $secondary-color;
         }
-        p{
-            opacity: .6;
-            font-size: 1rem;
-            a{
-                color: #fff;
-                text-decoration: none;
+    }
+    form{
+        input{
+            margin-bottom: 1rem;
+            height: 2.5rem;
+            border-radius: 0px;
+            box-shadow: none;
+            &::placeholder{
+                font-size: .8rem;
             }
         }
-    }
-    hr{
-        background: #fff;
-        opacity: .8;
-    }
-    .footer__bottom{
-        small{
-            color: #fff;
-            opacity: .6;
+        textarea{
+            border-radius: 0px;
+            box-shadow: none;
+           font-size: .9rem;
+           margin-bottom: 1rem;
+        }
+        .form__btn{
+            background: $secondary-color;
+            width: 100%;
+            border:none;
+            padding: .6rem 1rem;
+            font-weight: bold;
+            font-size: .9rem;
         }
     }
 }

@@ -1,10 +1,10 @@
 <template>
   <div class="signup">
         <div class="form__wrapper">
-           <h4>CREATE YOUR ACCOUNT</h4>
-           <P>It is simple and can be completed in a minute!</P>
+           <h4 class="text-center">MEMBER REGISTRATION</h4>
+           <!-- <P>It is simple and can be completed in a minute!</P> -->
            <hr>
-           <form action="">
+           <form @submit.prevent="signup()">
                <div class="form-group">
                    <input type="text" class="form-control" placeholder="Enter your full name" v-model="name">
                </div>
@@ -18,6 +18,14 @@
                       <small id="passwordHelpBlock" class="form-text text-muted">Select your account type</small>
                    <select v-model="account_type" class="form-control">
                        <option value="" selected>Select Account Type</option>
+                       <option value="10000" selected>Executive Broker + Analyst- (1000) - Earn 100% weekly</option>
+                       <option value="8000" selected>Executive Broker (8000) - Earn 100% weekly</option>
+                       <option value="5000" selected>Executive Broker (5000) - Earn 100% weekly</option>
+                       <option value="2000" selected>Senior Broker (2000) - Earn 100% weekly</option>
+                       <option value="1500" selected>Senior Broker (1500) - Earn 100% weekly</option>
+                       <option value="1000" selected>Junior Broker (1000) - Earn 100% weekly</option>
+                       <option value="500" selected>Junior Broker (500) - Earn 100% weekly</option>
+                       <option value="50" selected>Starter (50) - Earn 100% weekly</option>
                    </select>
                </div>
                <div class="form-group">
@@ -277,6 +285,12 @@
                 <div class="form-group">
                    <input type="password" class="form-control" placeholder="Repeat Password" v-model="repeat_password">
                </div>
+                 <div v-if="err" class="alert alert-danger animated slideInRight">
+                   {{ err }}
+               </div>
+                <div v-if="loading" class="loading text-center">
+                              <img src="../assets/images/loader.gif" class="loader" alt="">
+                          </div>
                <button type="submit" class="signup__btn">Create Account</button>
                <div class="bottom text-center pt-4">
                    <p>Have an account already? <router-link to="/signin">Sign In</router-link></p>
@@ -287,8 +301,51 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+import db from '@/firebase/init'
 export default {
-
+    data(){
+        return{
+            name: null,
+            email: null,
+            phone: null, 
+            account_type:null,
+            country: null,
+            password: null,
+            repeat_password: null,
+            err: null,
+            loading:false
+        }
+    },
+    methods:{
+        signup(){
+            this.loading = true
+            //Check if the user has filled out all the required details
+            if(!this.name || !this.email || !this.phone || !this.account_type || !this.country || !this.password || !this.repeat_password){
+                this.loading = false
+                this.err = 'Registration failed. Please fill out the form and try again!'
+            }else if (this.password != this.repeat_password){
+                //Check to see if the passwords are same
+                this.loading = false
+                this.err = 'Oops! Your password did not match'
+            }else{
+                //Signup the user
+                this.loading = false
+                firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+                .then((cred)=>{
+                     db.collection('users').add({
+                        name:this.name,
+                        phone:this.phone,
+                        email:this.email,
+                        account_type:this.account_type,
+                        country:this.country,
+                        user_id:cred.user.uid
+                })
+                this.$router.push({name: 'dashboard'})
+                })
+            }
+        }
+    }
 }
 </script>
 
@@ -305,17 +362,19 @@ export default {
         border-radius: 4px;
         padding: 2rem;
         margin: 4rem 1rem;
-         width: 400px;
+         width: 500px;
+         max-width: 100%;
          h4{
                 font-weight: bold;
                 color: #000;
+                padding-top: 1rem;
             }
             p{
                 padding-bottom: 1rem;
             }
         form{
             input, select{
-                height: 3rem;
+                height: 3.2rem;
                 border-radius: 0px;
                 box-shadow: none;
                 border:1px solid #000;
@@ -324,17 +383,21 @@ export default {
                     font-size: .7rem;
                     color: #000;
                 }
-            }
-            .small{
+                 .small{
                 color: #000 !important;
                 font-weight: bold !important;
+            }
+            }
+             .loader{
+                // max-width: 250px;
+                height: 100px;
             }
             .signup__btn{
                 background: $secondary-color;
                 color: #000;
                 padding: .8rem 2rem;
-                border: none;
-                width: 100%;
+                border: 1px solid $secondary-color;
+                width: 60%;
             }
         }
     }

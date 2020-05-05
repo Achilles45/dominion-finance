@@ -4,35 +4,22 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="carousel-overlay"></div>
-          <img class="carousel-img" src="../assets/images/banner2.jpg" alt="First slide" />
+          <img class="carousel-img" src="../assets/images/banner1.jpg" alt="First slide" />
           <div class="carousel-caption">
-            <h2 class="animated bounceIn">Make secured and high yield <span class="text-color">investments</span></h2>
-            <p>Join over 250 people who make safe investments and trust our experienced fund managers to deliver consistence results every week.</p>
-            <router-link to="/signup" class="carousel-btn animated zoomIn animate3d">Get Started<i class="fa fa-long-arrow-alt-right"></i></router-link>
+            <h1 class="animated bounceIn">AT OUR ACADEMY<br><span class="text-color">ANYTHING IS POSSIBLE</span></h1>
+            <p>Learn the most effective trading strategies with our easy-to-understand videos.</p>
+            <router-link to="/signup" class="carousel-btn animated zoomIn animate3d">START NOW</router-link>
           </div>
         </div>
         <div class="carousel-item">
           <div class="carousel-overlay"></div>
           <img class="carousel-img" src="../assets/images/banner1.jpg" alt="Second slide" />
           <div class="carousel-caption">
-            <h2 class="animated slideInDown animate3d">Learn to trade the biggest <span class="text-color">financial market</span></h2>
+            <h1 class="animated slideInDown animate3d">YOUR INVESTMENT IS <br><span class="text-color">SAFE WITH US.</span></h1>
             <p
               class="animated slideInRight animate3d"
-            >We have world class training strategies that allows you to go from beginner to pro trader in few weeks.</p>
-            <router-link to="/signup" class="carousel-btn animated zoomIn animate3d">Get Started<i class="fa fa-long-arrow-alt-right"></i></router-link>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="carousel-overlay"></div>
-          <img class="carousel-img" src="../assets/images/banner3.jpg" alt="Third slide" />
-          <div class="carousel-caption">
-            <h2
-              class="animated slideInDown animate3d"
-            >Access our world class <span class="text-color">customer support</span></h2>
-            <p
-              class="animated slideInDown animate3d"
-            >The customer success team is always ready to respond to all your queries in real time should you have any problem using our services.</p>
-            <router-link to="/contact" class="carousel-btn animated zoomIn animate3d">Get Started<i class="fa fa-long-arrow-alt-right"></i></router-link>
+            >We operate using the highest security standards so you can have a peace of mind.</p>
+            <router-link to="/signup" class="carousel-btn animated zoomIn animate3d">START NOW</router-link>
           </div>
         </div>
       </div>
@@ -76,11 +63,10 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
   }
   .carousel-img {
     width: auto;
-    height: 82vh;
+    height: 72vh;
     display: block !important;
     width: 100vw;
   }
@@ -89,12 +75,12 @@ export default {
   }
   .carousel-caption {
     position: absolute;
-    top: 25%;
+    top: 10%;
     transform: translateX(-50%, -50%);
     width: 50%;
     text-align: left;
     color:#fff;
-    h2 {
+    h1 {
       font-weight: 700;
       font-size: 2.5rem;
       padding-bottom: 1rem;
@@ -111,10 +97,10 @@ export default {
       letter-spacing: 1px;
       font-size: 1rem;
       padding-bottom: 2rem;
-      opacity: 0.5;
+      // opacity: 0.5;
     }
     .fa-long-arrow-alt-right{
-      margin-left: 1rem;
+      margin-left: 0rem;
       animation-name: animate;
       animation-duration: 3s;
       animation-iteration-count: infinite;
@@ -123,7 +109,7 @@ export default {
     .carousel-btn {
       color: $secondary-color;
       background: transparent;
-      padding: 1.2rem 4rem;
+      padding: 1rem 2rem;
       text-align: center;
       font-size: 1rem;
       font-weight: bold;
@@ -144,37 +130,35 @@ export default {
   }
 }
 
-@media only screen and (max-width: 960px) {
-  .carousel__wrapper {
-    .carousel-overlay{
-      background: rgba(0, 0, 0, 0.9) !important;
-    }
-    .carousel-img {
-      width: auto;
-      height: 100vh;
-      max-height: 600px;
-      display: block;
-    }
-    .carousel-caption {
+@media only screen and (max-width: 600px){
+    .carousel-caption{
       position: absolute;
-      top: 17% !important;
-      width: 70%;
+      top: 10%;
       transform: translateX(-50%, -50%);
-      // text-align: left;
-      h2 {
-        font-size: 1.2rem !important;
-        padding-bottom: 2rem;
-        line-height: 1.5 !important;
+      width: 70% !important;
+      text-align: center !important;
+      font-family: 'Arial' !important;
+      h1{
+        text-align: center !important;
+         font-weight: 700;
+        font-size: 1rem !important;
+        padding-bottom: 1rem;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        text-shadow: 0.02em 0.02em 0.03em #fff;
+        line-height: 1.3;
       }
-      p {
-        font-size: 0.8rem;
-        padding-bottom: 2rem;
-        opacity: .8 !important;
+      p{
+        font-size: .8rem !important;
       }
     }
+     .carousel-img {
+    width: auto;
+    height: 42vh !important;
+    display: block !important;
+    width: 100vw;
   }
 }
-
 //Animation for button arrow
 @keyframes animate {
     from{

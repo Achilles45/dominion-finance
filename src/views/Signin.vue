@@ -4,14 +4,20 @@
            <h4>Welcome Back!</h4>
            <P>Sigin to continue to your dashboard</P>
            <hr><br>
-           <form action="">
+           <form @submit.prevent="signin()">
                 <div class="form-group">
                    <input type="email" class="form-control" placeholder="Enter your email address" v-model="email">
                </div>
                <div class="form-group">
                    <input type="password" class="form-control" placeholder="Enter Password" v-model="password">
                </div>
-               <button type="submit" class="signup__btn">Create Account</button>
+               <div v-if="err" class="alert alert-danger animated slideInRight">
+                   {{ err }}
+               </div>
+                <div v-if="loading" class="loading text-center">
+                              <img src="../assets/images/loader.gif" class="loader" alt="">
+                          </div>
+               <button type="submit" class="signup__btn">LOGIN</button>
                <div class="bottom text-center pt-4">
                    <p>Yet to have an account? <router-link to="/signup">Sign Up</router-link></p>
                </div>
@@ -21,8 +27,36 @@
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
-
+    data(){
+        return{
+            email: null,
+            password: null,
+            err:null,
+            loading: false
+        }
+    },
+    methods:{
+        signin(){
+            this.loading = true
+            //Check if the user has filled in the email and password
+            if(!this.email || !this.password){
+                this.loading = false
+                this.err = 'Please provide your credentials and try again!'
+            }else{
+                //Sign in the user here
+                this.loading = false
+                firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+                .then(()=>{
+                    this.$router.push({name: 'dashboard'})
+                })
+                .catch(err=>{
+                    this.err = err.message
+                })
+            }
+        }
+    }
 }
 </script>
 
@@ -62,6 +96,10 @@ export default {
             .small{
                 color: #000 !important;
                 font-weight: bold !important;
+            }
+            .loader{
+                // max-width: 250px;
+                height: 100px;
             }
             .signup__btn{
                 background: $secondary-color;

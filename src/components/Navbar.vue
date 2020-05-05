@@ -3,15 +3,15 @@
       <div class="container">
           <div class="navbar__content d-flex justify-content-between align-items-center">
               <div class="logo pt-2">
-                  <router-link to="/"><img src="../assets/images/logo.png" class="logo__img" alt=""><span class="logo-img">Dominion Investment Co.</span></router-link>
+                  <router-link to="/" class="logo"><img src="../assets/images/investment.png" class="logo__img" alt=""></router-link>
               </div>
               <div class="menu">
                   <ul class="d-flex justify-content-between pt-3">
-                      <li><router-link to="/" class="links">Home</router-link></li>
-                      <li><router-link to="/about">About Us</router-link></li>
-                      <li><router-link to="/contact" class="links">Contact Us</router-link></li>
-                      <li><router-link to="/signup" class="links">Sign Up</router-link></li>
-                      <li><router-link to="/signin" class="login links">Sing In</router-link></li>
+                      <li><router-link to="/" class="links">Asset Index</router-link></li>
+                      <li><router-link to="/glossary">Glossary</router-link></li>
+                      <li><router-link to="/how-to-trade" class="links">Tradings</router-link></li>
+                      <li><router-link to="/faqs" class="links">Faqs</router-link></li>
+                      <li><router-link to="/contact" class="login links">Contact Us</router-link></li>
                   </ul>
               </div>
               <div @click="showNav()" class="navbar__toggler">
@@ -58,11 +58,12 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/styles/colors';
 .navbar__wrapper{
-    // background: red;
+    background: #000000;
     padding: 1rem 0;
     .navbar__content{
         .logo{
              text-decoration: none !important;
+             color: #fff;
             .logo__img{
                 max-width: 50px;
                 height: auto;
@@ -76,9 +77,11 @@ export default {
             ul li a{
                 text-decoration: none;
                 margin: 0 1.2rem;
-                font-weight: bold;
-                opacity: .7;
-                color: $primary-color;
+                font-weight: 400;
+                // opacity: .7;
+                color:#fff;
+                text-transform: uppercase;
+                font-size: .86rem;
             }
             .login{
                 border: 1px solid $primary-color;
@@ -90,7 +93,7 @@ export default {
             display: none;
             font-size: 1.5rem;
             padding-right: 1rem;
-            color: $primary-color;
+            color: #fff;
         }
     }
 }
@@ -100,7 +103,7 @@ export default {
     top: 0; 
     width: 100%;
     z-index: 10000 !important;
-    background: #fff;
+    background: #000;
     padding: .8rem 0;
     transition: all ease-in-out .5s;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.17);
