@@ -314,7 +314,9 @@ export default {
             password: null,
             repeat_password: null,
             err: null,
-            loading:false
+            loading:false,
+            available_balance:null,
+            verifified: 'false'
         }
     },
     methods:{
@@ -339,13 +341,15 @@ export default {
                         email:this.email,
                         account_type:this.account_type,
                         country:this.country,
-                        user_id:cred.user.uid
+                        user_id:cred.user.uid,
+                        available_balance:this.account_type,
+
                 })
                 this.$router.push({name: 'dashboard'})
                 })
             }
         }
-    }
+    },
 }
 </script>
 
