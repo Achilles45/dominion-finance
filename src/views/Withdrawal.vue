@@ -22,7 +22,7 @@
               <div class="heading d-flex justify-content-between">
                   <div class="content">
                       <h4>You are logged as </h4>
-                      <h2>{{ first_name }} {{ last_name }}</h2>
+                      <h2>{{ name }}</h2>
                       <!-- <small>{{ firstCode }}</small> -->
                   <!-- <small>{{ accountNumber }}</small> -->
                   </div>
@@ -39,18 +39,6 @@
                         <form @submit.prevent="withdraw()">
                     <div class="form-group">
                         <input type="text" class="form-control" disabled  v-bind:value="id">
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" disabled v-bind:value="first_name">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" disabled v-bind:value="last_name">
-                            </div>
-                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -97,10 +85,10 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" disabled v-bind:value="investmentReturns">
+                                <input type="text" class="form-control"  v-bind="amount" placeholder="Amount to withdraw">
                         </div>
                         </div>
-                    </div><div v-if="err" class="err message err animated slideInRight">
+                    </div><div v-if="err" class="alert alert-danger animated slideInRight">
                                 {{ err }}
                             </div>
                             <div v-if="success" class="alert alert-success">
@@ -124,8 +112,7 @@ export default {
         return{
             id:null,
             email:null,
-            first_name:null,
-            last_name:null,
+            name:null,
             plan:null,
 
             //Data for the withdrawal process
@@ -133,13 +120,15 @@ export default {
             account_number:null,
             date:null,
             amount:null,
+            account_type:null,
             err:null,
-            success:null
+            success:null,
+            investmentReturns:null
         }
     },
     computed:{
         investmentReturns(){
-            return this.plan * 0.15
+            return this.investmentReturns = account_type * 100;
         }
     },
     methods:{
@@ -157,16 +146,13 @@ export default {
         //Function for the withdrawal process here
         withdraw(){
            // Check if the user has filled the form
-           if(!this.first_name || !this.last_name || !this.bank || !this.account_number || !this.amount){
+           if(!this.bank || !this.account_number || !this.amount || !this.date){
                this.err = 'Please fill out the form and try again'
                this.removeAlert()
+           }else if(this.amount > this.investmentReturns){
+               this.err = 'Transaction failed. You do not have sufficient balance in your wallet';
            }else{
-               //Give a success message to the user
-                this.success = 'Your request was sent successfully and will be processed within 24 hours'
-                this.bank = ''
-                this.account_number = ''
-                this.date = ''
-                this.amount = ''
+               this.success = 'Your withdrawal request was submitted successful. We will get back to you in 24 hours'
            }
         },
          removeAlert(){
@@ -182,10 +168,9 @@ export default {
         //Now check the database to fetch the details
         db.collection('users').where("user_id", "==", user.uid).get().then(snapshot =>{
             snapshot.forEach((doc) =>{
-                this.first_name = doc.data().first_name,
-                this.last_name = doc.data().last_name,
+                this.name = doc.data().name,
                 this.email = doc.data().email,
-                this.plan = doc.data().plan
+                this.account_type = doc.data().account_type
                 this.id = doc.data().user_id
             })
         })
@@ -317,8 +302,8 @@ export default {
                      border-radius: 0px;
                      font-size: .9rem;
                  }
-                 .request__btn{
-                     background: #251F68;
+                 .withraw_btn{
+                     background: $secondary-color;
                      color:#fff;
                      margin-top: 1.5rem;
                      border-radius: 3px;

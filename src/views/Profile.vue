@@ -22,7 +22,7 @@
               <div class="heading d-flex justify-content-between">
                   <div class="content">
                       <h4>You are logged as </h4>
-                      <h2>{{ first_name }} {{ last_name }}</h2>
+                      <h2>{{name}}</h2>
                       <!-- <small>{{ firstCode }}</small> -->
                   <!-- <small>{{ accountNumber }}</small> -->
                   </div>
@@ -34,21 +34,18 @@
               <div id="dashboard">
              <small>This is your profile information on our platform</small>
              <hr>
+              <div>
+                  <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/tickers/?locale=en#%7B%22symbols%22%3A%5B%7B%22title%22%3A%22EUR%2FUSD%22%2C%22proName%22%3A%22FX_IDC%3AEURUSD%22%7D%2C%7B%22description%22%3A%22GBP%2FUSD%22%2C%22proName%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22description%22%3A%22USD%2FJPY%22%2C%22proName%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22description%22%3A%22NZD%2FUSD%22%2C%22proName%22%3A%22FX%3ANZDUSD%22%7D%2C%7B%22description%22%3A%22AUD%2FUSD%22%2C%22proName%22%3A%22FX%3AAUDUSD%22%7D%5D%2C%22width%22%3A%22100%25%22%2C%22height%22%3A72%2C%22utm_source%22%3A%22cryptomorefx.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22tickers%22%7D" style="box-sizing: border-box; height: 72px; width: 100%;"></iframe>
+              </div>
                   <form>
-                    <div class="row">
-                      <div class="col-md-6">
                         <div class="form-group">
-                          <label for="fname">First Name *</label>
-                          <input type="text" class="form-control" disabled v-bind:value="first_name">
+                          <label for="fname">Full Name *</label>
+                          <input type="text" class="form-control" disabled v-bind:value="name">
                         </div>
-                      </div>
-                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="lname">Last Name *</label>
-                          <input type="text" class="form-control" disabled v-bind:value="last_name">
+                          <label for="fname">Your Unique Identification Number *</label>
+                          <input type="text" class="form-control" disabled v-bind:value="id">
                         </div>
-                      </div>
-                    </div>
                      <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -66,14 +63,14 @@
                      <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="address">Office or Home Address *</label>
-                          <input type="text" class="form-control" disabled v-bind:value="address">
+                          <label for="address">Country of Residence *</label>
+                          <input type="text" class="form-control" disabled v-bind:value="country">
                         </div>
                       </div>
                        <div class="col-md-6">
                         <div class="form-group">
                           <label for="plan">Investment Plan *</label>
-                          <input type="text" class="form-control" disabled v-bind:value="plan">
+                          <input type="text" class="form-control" disabled v-bind:value="account_type">
                         </div>
                       </div>
                     </div>
@@ -93,11 +90,11 @@ export default {
     data(){
         return{
             email:null,
-            first_name:null,
-            last_name:null,
-            address:null,
-            plan:null,
-            phone:null
+            name:null,
+            account_type:null,
+            phone:null,
+            id:null,
+            country:null
         }
     },
      methods:{
@@ -120,12 +117,13 @@ export default {
         //Now check the database to fetch the details
         db.collection('users').where("user_id", "==", user.uid).get().then(snapshot =>{
             snapshot.forEach((doc) =>{
-                this.first_name = doc.data().first_name,
-                this.last_name = doc.data().last_name,
+                this.name = doc.data().name,
                 this.email = doc.data().email,
-                this.plan = doc.data().plan,
+                this.account_type = doc.data().account_type,
                 this.phone = doc.data().phone,
-                this.address = doc.data().address
+                this.address = doc.data().address,
+                this.id = doc.data().user_id,
+                this.country = doc.data().country
             })
         })
     }

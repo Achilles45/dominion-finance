@@ -33,8 +33,8 @@
                   <div class="heading d-flex justify-content-between">
                   <div class="content">
                    <!-- <h5>Welcome Back!</h5> -->
-                      <h4>{{ first_name }} {{ last_name }}</h4>
                     <h5>Make Payment</h5>
+                         <h4>{{ name }}</h4>
                   </div>
                     <div @click.prevent="show()" class="navbar__toggler">
                       <i class="fa fa-bars"></i>
@@ -44,25 +44,18 @@
               <div id="dashboard">
              <small>You can make your deposit with any of the following methods immediately.</small>
              <hr>
+               <div>
+                  <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/tickers/?locale=en#%7B%22symbols%22%3A%5B%7B%22title%22%3A%22EUR%2FUSD%22%2C%22proName%22%3A%22FX_IDC%3AEURUSD%22%7D%2C%7B%22description%22%3A%22GBP%2FUSD%22%2C%22proName%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22description%22%3A%22USD%2FJPY%22%2C%22proName%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22description%22%3A%22NZD%2FUSD%22%2C%22proName%22%3A%22FX%3ANZDUSD%22%7D%2C%7B%22description%22%3A%22AUD%2FUSD%22%2C%22proName%22%3A%22FX%3AAUDUSD%22%7D%5D%2C%22width%22%3A%22100%25%22%2C%22height%22%3A72%2C%22utm_source%22%3A%22cryptomorefx.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22tickers%22%7D" style="box-sizing: border-box; height: 72px; width: 100%;"></iframe>
+              </div>
                   <div class="summary__wrapper">
                   <div class="summary__card one pt-4">
                      <!-- <i class="fa fa-home"></i> -->
                      <div class="content pl-4">
                          <!-- <h6>Bank Accounts</h6> -->
-                         <h6>Bank Name: First Bank of Nigeria, PLC</h6>
+                         <h6>Bank Name: Zenith Bank of Nigeria PLC</h6>
                          <hr>
-                         <h6>Account Number:  3076977973</h6>
-                         <h6>Account Name:  Usuoyibo Achilles Ewomamena</h6>
-                     </div>
-                  </div>
-                   <div class="summary__card two pt-4">
-                     <!-- <i class="fa fa-home"></i> -->
-                     <div class="content pl-4">
-                         <!-- <h6>Bank Accounts</h6> -->
-                         <h6>Bank Name: Ecobank Nigeria, PLC</h6>
-                         <hr>
-                         <h6>Account Number:  2923060223</h6>
-                         <h6>Account Name:  Esemuzor Uche</h6>
+                         <h6>Account Number:  2118636029</h6>
+                         <h6>Account Name:  Adjaino Innocent Mamuyovwi</h6>
                      </div>
                   </div>
                     <!-- <div class="summary__card three pt-4">
@@ -78,18 +71,15 @@
                          <!-- <h6>Bank Accounts</h6> -->
                          <h6>Bitcoin Payment</h6>
                          <hr>
-                         <h6>Wallet Address: 3JFo28nx8hS5Z2Jv6D2hwNBx3nXbouky1Q</h6>
+                         <h6>Wallet Address: 1E6VgEPDFSaxomfaNk4NVqvydBAF4NXvqS</h6>
                          <!-- <h6>Account Name:  Usuoyibo Achilles Ewomamena</h6> -->
                      </div>
                   </div>
               </div>
               </div>
               <hr>
-              <div>
-                  <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/tickers/?locale=en#%7B%22symbols%22%3A%5B%7B%22title%22%3A%22EUR%2FUSD%22%2C%22proName%22%3A%22FX_IDC%3AEURUSD%22%7D%2C%7B%22description%22%3A%22GBP%2FUSD%22%2C%22proName%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22description%22%3A%22USD%2FJPY%22%2C%22proName%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22description%22%3A%22NZD%2FUSD%22%2C%22proName%22%3A%22FX%3ANZDUSD%22%7D%2C%7B%22description%22%3A%22AUD%2FUSD%22%2C%22proName%22%3A%22FX%3AAUDUSD%22%7D%5D%2C%22width%22%3A%22100%25%22%2C%22height%22%3A72%2C%22utm_source%22%3A%22cryptomorefx.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22tickers%22%7D" style="box-sizing: border-box; height: 72px; width: 100%;"></iframe>
-              </div>
               <div></div>
-              <p>After making paymen, please send a message to to customer care using the live chat or call 08103515205 so your payment can be immediately approved.</p>
+              <p>After making paymen, please send a message to to customer care using the live chat or email to info@dynamicinvestment.net so your payment can be immediately approved.</p>
               </div>
             <!--End of Dashboard
             =========================-->
@@ -105,8 +95,7 @@ export default {
     data(){
         return{
             email:null,
-            first_name:null,
-            last_name:null,
+            name:null,
             plan:null,
             id:null
         }
@@ -145,8 +134,7 @@ export default {
         //Now check the database to fetch the details
         db.collection('users').where("user_id", "==", user.uid).get().then(snapshot =>{
             snapshot.forEach((doc) =>{
-                this.first_name = doc.data().first_name,
-                this.last_name = doc.data().last_name,
+                this.name = doc.data().name,
                 this.email = doc.data().email,
                 this.plan = doc.data().plan,
                 this.id = doc.data().user_id
