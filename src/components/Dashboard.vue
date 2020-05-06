@@ -59,8 +59,8 @@
                     <div class="summary__card two pt-4">
                      <i class="fa fa-credit-card"></i>
                      <div class="content pl-4">
-                         <h6>Expected Weekly Returns</h6>
-                         <h5>$ {{ investmentReturns }}</h5>
+                         <h6>Total Profit</h6>
+                         <h5>$ {{ available }}</h5>
                      </div>
                   </div>
                     <!-- <div class="summary__card three pt-4">
@@ -98,7 +98,8 @@ export default {
             email:null,
             name:null,
             account_type:null,
-            id:null
+            id:null,
+            available:null
         }
     },
     computed:{
@@ -137,6 +138,7 @@ export default {
             snapshot.forEach((doc) =>{
                 this.name = doc.data().name,
                 this.email = doc.data().email,
+                this.available = doc.data().available_balance,
                 this.account_type = doc.data().account_type,
                 this.id = doc.data().user_id
             })
