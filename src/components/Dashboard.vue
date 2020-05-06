@@ -103,7 +103,7 @@ export default {
     },
     computed:{
         investmentReturns(){
-            return this.account_type * 100
+            return this.account_type * 0.06
         }
     },
      methods:{
