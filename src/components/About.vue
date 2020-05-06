@@ -13,16 +13,16 @@
                   <p>Stay up to date with all that is going on in the markets with our economic calendar.
                     Using the economic calendar as a trading tool is an integral way to pinpoint key trading opportunities, thereby increasing your profit potential.</p>
                    <div class="bottom pt-4">
-                        <router-link to="/" class="card__btn">TAKE A LOOK</router-link>
+                        <router-link to="/faqs" class="card__btn">TAKE A LOOK</router-link>
                    </div>
               </div>
                <div class="card__content">
                   <img src="../assets/images/book.png" class="card__img" alt="">
                   <h2>Trading Academy</h2>
                   <p>We take pride in making trading accessible for everyone.
-                    This is why we created the FX Finance Up Trading Academy consisting of numerous video tutorials, eBooks and many other educational materials.</p>
+                    This is why we created the Dynamic Investment Academy consisting of numerous video tutorials, eBooks and many other educational materials.</p>
                     <div class="bottom pt-4">
-                        <router-link to="/" class="card__btn">ENROLL NOW</router-link>
+                        <router-link to="/faqs" class="card__btn">ENROLL NOW</router-link>
                     </div>
               </div>
                <div class="card__content">
@@ -31,7 +31,7 @@
                   <p>Start honing your trading skills with our FREE webinars given by trading professionals.
                     Designed with you in mind, our easy-to-follow webinars cover everything, spanning from an introduction to trading to developing the most effective trading strategies.</p>
                  <div class="bottom pb-5">
-                        <router-link to="/" class="card__btn">LEARN MORE</router-link>
+                        <router-link to="/faqs" class="card__btn">LEARN MORE</router-link>
                  </div>
               </div>
           </div>

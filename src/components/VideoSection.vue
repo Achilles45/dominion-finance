@@ -7,7 +7,7 @@
               </div>
               <div class="col-md-6 text">
                   <h1>Daily <span class="span">Market Review</span></h1>
-                  <p>Having proper information at your fingertips is crucial when it comes to making the very best trading decisions. FX Finance Up’s comprehensive daily market reviews are a perfect resource for successful trading. <br><br> Our reviews will help you have ideas on the key developments that are occurring on a day-to-day basis so you can make the most informed decisions. As the markets are constantly on the move, be sure to read our daily market review at the start of every trading day so you know what to be aware of when you are trading.</p>
+                  <p>Having proper information at your fingertips is crucial when it comes to making the very best trading decisions. Dynamic Investment comprehensive daily market reviews are a perfect resource for successful trading. <br><br> Our reviews will help you have ideas on the key developments that are occurring on a day-to-day basis so you can make the most informed decisions. As the markets are constantly on the move, be sure to read our daily market review at the start of every trading day so you know what to be aware of when you are trading.</p>
               </div>
           </div>
       </div>

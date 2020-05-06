@@ -6,28 +6,28 @@
                  <div class="row">
                      <div class="col-md-4">
                          <h6>About Us</h6>
-                         <p><router-link to="/">Asset Index</router-link></p>
-                         <p><router-link to="/">Glossary</router-link></p>
-                         <p><router-link to="/">FAQ</router-link></p>
-                        <p><router-link to="/">Contact Us</router-link></p>
+                         <p><router-link to="/">Home</router-link></p>
+                         <p><router-link to="/glossary">Glossary</router-link></p>
+                         <p><router-link to="/faqs">FAQ</router-link></p>
+                        <p><router-link to="/contact">Contact Us</router-link></p>
                      </div>
                       <div class="col-md-4">
                          <h6>Start trading</h6>
-                         <p><router-link to="/">Open account</router-link></p>
-                        <p><router-link to="/">Tradings</router-link></p>
-                       <p><router-link to="/">Account types</router-link></p>
+                         <p><router-link to="/signup">Open account</router-link></p>
+                        <p><router-link to="/how-to-trade">Tradings</router-link></p>
+                       <p><router-link to="/signup">Account types</router-link></p>
                      </div>
                       <div class="col-md-4">
                          <h6>Legal</h6>
                         <p><router-link to="/">Terms & Conditions</router-link></p>
                          <p><router-link to="/">Privacy Policy</router-link></p>
-                         <p><router-link to="/">FAQs</router-link></p>
+                         <p><router-link to="/faqs">FAQs</router-link></p>
                      </div>
                  </div>
              </div>
              <div class="col-md-2"></div>
              <div class="col-md-2 text-center contact">
-                 <h6>Head Office: Westfield Liverpool, Macquarie St, Liverpool NSW 2170</h6>
+                 <h6>Head Office: 2609 W. Orangethrope Ave, Fullerton, CA 90621.</h6>
                  <h6 span class="span">Terms of Use <br> Privacy Policy</h6>
                  <img src="../assets/images/shield.png" class="img-fluid" alt="">
              </div>
@@ -37,7 +37,7 @@
                      <input type="email" class="form-control" placeholder="*Email Address">
                      <input type="text" class="form-control" placeholder="*Subject">
                      <textarea name="" id="" cols="20" rows="5" class="form-control">
-                         Send a mail to info@dynamicinvestment.com
+                         Send a mail to info@dynamicinvestment.net
                      </textarea>
                      <button type="submit" class="form__btn">SEND</button>
                  </form>

@@ -7,7 +7,7 @@
               </div>
               <div class="menu">
                   <ul class="d-flex justify-content-between pt-3">
-                      <li><router-link to="/" class="links">Asset Index</router-link></li>
+                      <li><router-link to="/" class="links">Home</router-link></li>
                       <li><router-link to="/glossary">Glossary</router-link></li>
                       <li><router-link to="/how-to-trade" class="links">Tradings</router-link></li>
                       <li><router-link to="/faqs" class="links">Faqs</router-link></li>

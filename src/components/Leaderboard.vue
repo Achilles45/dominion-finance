@@ -3,7 +3,7 @@
       <div class="container">
           <div class="row">
              <div class="col-md-7 text">
-                 <h1><span class="span">FX FINANCE UP</span> LEADERBOARD</h1>
+                 <h1><span class="span">DYNAMIC INVESTMENT</span> LEADERBOARD</h1>
                  <h2 class="span">This Week Top Trades</h2>
                     <table class="table table-bordered rank">
                         <thead>

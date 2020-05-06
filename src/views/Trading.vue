@@ -8,7 +8,7 @@
                   <div class="col-md-7 text">
                       <h1>How to trade</h1>
                       <p>Trading is quite simple and does not require any previous experience or financial know-how.
-                        At FX Finance Up you are assigned a personal account manager who will teach you how to properly analyze and understand the financial markets. Additionally, we give you access to a library stocked with tutorial videos that explain everything you need to know along with e-Books that you can download and refer to.</p><br>
+                        At Dynamic Investment Up you are assigned a personal account manager who will teach you how to properly analyze and understand the financial markets. Additionally, we give you access to a library stocked with tutorial videos that explain everything you need to know along with e-Books that you can download and refer to.</p><br>
                         <h4 class="span">You can easily trade in 4 simple steps</h4>
                         <h6 class="span">Step 1</h6>
                         <p>Choose which asset you want to trade on: Stocks, Currencies, Indices or Commodities.</p><br>
