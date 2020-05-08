@@ -6,8 +6,8 @@
           <div class="carousel-overlay"></div>
           <img class="carousel-img" src="../assets/images/banner1.jpg" alt="First slide" />
           <div class="carousel-caption">
-            <h1 class="animated bounceIn">AT OUR ACADEMY<br><span class="text-color">ANYTHING IS POSSIBLE</span></h1>
-            <p>Learn the most effective trading strategies with our easy-to-understand videos.</p>
+            <h1 class="animated bounceIn">EARN 60% PROFIT ON YOUR INVESTMENT<br><span class="text-color">IN 5 DAYS</span></h1>
+            <p>Make registration with Dynamic Investment and enjoy 60% profit in 5 working days</p>
             <router-link to="/signup" class="carousel-btn animated zoomIn animate3d">START NOW</router-link>
           </div>
         </div>
@@ -18,7 +18,7 @@
             <h1 class="animated slideInDown animate3d">YOUR INVESTMENT IS <br><span class="text-color">SAFE WITH US.</span></h1>
             <p
               class="animated slideInRight animate3d"
-            >We operate using the highest security standards so you can have a peace of mind.</p>
+            >We operate using the highest security standards so you can have peace of mind.</p>
             <router-link to="/signup" class="carousel-btn animated zoomIn animate3d">START NOW</router-link>
           </div>
         </div>

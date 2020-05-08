@@ -6,8 +6,8 @@
                  <video src="../assets/images/video.mp4" controls class="img-fluid"></video>
               </div>
               <div class="col-md-6 text">
-                  <h1>Daily <span class="span">Market Review</span></h1>
-                  <p>Having proper information at your fingertips is crucial when it comes to making the very best trading decisions. Dynamic Investment comprehensive daily market reviews are a perfect resource for successful trading. <br><br> Our reviews will help you have ideas on the key developments that are occurring on a day-to-day basis so you can make the most informed decisions. As the markets are constantly on the move, be sure to read our daily market review at the start of every trading day so you know what to be aware of when you are trading.</p>
+                  <h2>ABOUT <span class="span">DYNAMIC INVESTMENT</span></h2>
+                  <p>Having proper information at your fingertips is crucial when it comes to making the very best trading decisions. Dynamic Investment comprehensive daily market reviews are a perfect resource for successful trading. <br><br> Dynamic Investment - Bitcoin Investment, Bitcoin Trading, Gold Investment, EFTs & Digital OPtions Trading. <br>Dynamic Investment is your leading cryptocurrency investment and trading platform that offer Bitcoin trading options, provides 24/7 customer support, high level of security, and stable deposits and withdrawals.</p>
               </div>
           </div>
       </div>
@@ -30,8 +30,9 @@ export default {
     background-position: center;
     color: #fff;
     .text{
-        h1{
+        h2{
             text-transform: uppercase;
+            font-weight: bolder;
         }
         .span{
             color: $secondary-color

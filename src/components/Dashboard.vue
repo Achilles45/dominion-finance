@@ -48,19 +48,22 @@
               <div>
                   <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/tickers/?locale=en#%7B%22symbols%22%3A%5B%7B%22title%22%3A%22EUR%2FUSD%22%2C%22proName%22%3A%22FX_IDC%3AEURUSD%22%7D%2C%7B%22description%22%3A%22GBP%2FUSD%22%2C%22proName%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22description%22%3A%22USD%2FJPY%22%2C%22proName%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22description%22%3A%22NZD%2FUSD%22%2C%22proName%22%3A%22FX%3ANZDUSD%22%7D%2C%7B%22description%22%3A%22AUD%2FUSD%22%2C%22proName%22%3A%22FX%3AAUDUSD%22%7D%5D%2C%22width%22%3A%22100%25%22%2C%22height%22%3A72%2C%22utm_source%22%3A%22cryptomorefx.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22tickers%22%7D" style="box-sizing: border-box; height: 72px; width: 100%;"></iframe>
               </div>
+              <div v-if="verifyuser == 'false'" class="red">
+                  Your account has not been verified. Please make your payment for verification
+              </div>
                   <div class="summary__wrapper">
                   <div class="summary__card one pt-4">
                      <i class="fa fa-home"></i>
                      <div class="content pl-4">
-                         <h6>Amount Invested</h6>
-                         <h5>$ {{account_type}}</h5>
+                         <h6>Invetment Plan</h6>
+                         <h5>$ {{account_type}} package</h5>
                      </div>
                   </div>
                     <div class="summary__card two pt-4">
                      <i class="fa fa-credit-card"></i>
                      <div class="content pl-4">
-                         <h6>Total Profit</h6>
-                         <h5>$ {{ available }}</h5>
+                         <h6>Total Profit(60% plus your capital)</h6>
+                         <h5>$ {{ available_balance }}</h5>
                      </div>
                   </div>
                     <!-- <div class="summary__card three pt-4">
@@ -80,7 +83,7 @@
               </div>
               </div>
               <hr>
-              <p class="note">Your investment lifecycle will only begin to count when you have been verified to have made payment for your selected plan. Your returns of 15% of your principal investment would be paid to you on a weekly basis plus 7 working days at most and your capital at the end of the month. Terms and conditions applies. Also, should you find any difficulties in using the platform, kindly use livechat widget to send a message and our customer success team will respond as soon as possible. Happy investing.</p>
+              <p class="note">Kindly note that your investment lifecycle will only begin to count when you have been verified to have made payment for your selected plan. Your returns of 60% of your investment and your capital would be paid back in a week. Also, should you find any difficulties in using the platform, kindly use livechat widget to send a message and our customer success team will respond as soon as possible. Happy investing.</p>
               </div>
             <!--End of Dashboard
             =========================-->
@@ -99,12 +102,13 @@ export default {
             name:null,
             account_type:null,
             id:null,
-            available:null
+            available_balance:null,
+            verifyuser:null
         }
     },
     computed:{
-        investmentReturns(){
-            return this.account_type * 0.6
+        available(){
+            return this.available_balance * 0.6
         }
     },
      methods:{
@@ -138,8 +142,9 @@ export default {
             snapshot.forEach((doc) =>{
                 this.name = doc.data().name,
                 this.email = doc.data().email,
-                this.available = doc.data().available_balance,
+                this.available_balance = doc.data().available_balance,
                 this.account_type = doc.data().account_type,
+                this.verifyuser = doc.data().verifyuser
                 this.id = doc.data().user_id
             })
         })
@@ -305,6 +310,14 @@ export default {
             font-weight: bold;
             padding-bottom: 1.2rem;
             padding-top: 1rem;
+        }
+        .red{
+            background: rgb(161, 39, 39);
+            color: #fff;
+            padding: 1rem .5rem;
+            border-radius: 3px;
+            font-size: .85rem;
+            opacity: .9;
         }
         p{
             padding-top:1rem;

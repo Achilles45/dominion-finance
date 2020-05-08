@@ -34,6 +34,9 @@
               <div id="dashboard">
              <small>You can now make request to make withdrawal into your local bank when your investment has reached maturity</small>
              <hr>
+              <div v-if="verifyuser == 'false'" class="red">
+                  Your account has not been verified. Please make your payment for verification
+              </div>
                <div class="row">
                    <div class="col-md-8">
                         <form @submit.prevent="withdraw()">
@@ -114,7 +117,7 @@ export default {
             email:null,
             name:null,
             plan:null,
-
+            verifyuser:null,
             //Data for the withdrawal process
             bank:null,
             account_number:null,
@@ -127,8 +130,8 @@ export default {
         }
     },
     computed:{
-        investmentReturns(){
-            return this.investmentReturns = account_type * 100;
+        verifyuser(){
+            return this.verifyuser = this.verifyuser
         }
     },
     methods:{
@@ -147,11 +150,14 @@ export default {
         withdraw(){
            // Check if the user has filled the form
            if(!this.bank || !this.account_number || !this.amount || !this.date){
-               this.err = 'Please fill out the form and try again'
+               this.err = 'Please refresh and try again'
                this.removeAlert()
            }else if(this.amount > this.investmentReturns){
                this.err = 'Transaction failed. You do not have sufficient balance in your wallet';
-           }else{
+           }else if(this.verifyuser == 'false'){
+               this.err = 'Withdrawal failed. Please contact admin for verification'
+           }
+           else{
                this.success = 'Your withdrawal request was submitted successful. We will get back to you in 24 hours'
            }
         },
@@ -171,6 +177,7 @@ export default {
                 this.name = doc.data().name,
                 this.email = doc.data().email,
                 this.account_type = doc.data().account_type
+                this.verifyuser = doc.data().verifyuser
                 this.id = doc.data().user_id
             })
         })
@@ -379,4 +386,12 @@ export default {
     border: none;
     color: #FFF;
 }
+ .red{
+            background: rgb(161, 39, 39);
+            color: #fff;
+            padding: 1rem .5rem;
+            border-radius: 3px;
+            font-size: .85rem;
+            opacity: .9;
+        }
 </style>

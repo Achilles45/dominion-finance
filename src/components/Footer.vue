@@ -37,7 +37,7 @@
                      <input type="email" class="form-control" placeholder="*Email Address">
                      <input type="text" class="form-control" placeholder="*Subject">
                      <textarea name="" id="" cols="20" rows="5" class="form-control">
-                         Send a mail to info@dynamicinvestment.net
+                         Send a mail to dynamicinvestment7@gmail.com
                      </textarea>
                      <button type="submit" class="form__btn">SEND</button>
                  </form>

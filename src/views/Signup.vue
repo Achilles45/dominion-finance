@@ -18,14 +18,14 @@
                       <small id="passwordHelpBlock" class="form-text text-muted">Select your account type</small>
                    <select v-model="account_type" class="form-control">
                        <option value="" selected>Select Account Type</option>
-                       <option value="10000" selected>Executive Broker + Analyst- (1000) - Earn 100% weekly</option>
-                       <option value="8000" selected>Executive Broker (8000) - Earn 100% weekly</option>
-                       <option value="5000" selected>Executive Broker (5000) - Earn 100% weekly</option>
-                       <option value="2000" selected>Senior Broker (2000) - Earn 100% weekly</option>
-                       <option value="1500" selected>Senior Broker (1500) - Earn 100% weekly</option>
-                       <option value="1000" selected>Junior Broker (1000) - Earn 100% weekly</option>
-                       <option value="500" selected>Junior Broker (500) - Earn 100% weekly</option>
-                       <option value="50" selected>Starter (50) - Earn 100% weekly</option>
+                       <option value="10000" selected>Executive Broker + Analyst- (10000) - Earn 60% In 5 Days</option>
+                       <option value="8000" selected>Executive Broker (8000) - Earn 60% In 5 Days</option>
+                       <option value="5000" selected>Executive Broker (5000) - Earn 60% In 5 Days</option>
+                       <option value="2000" selected>Senior Broker (2000) - Earn 60% In 5 Days</option>
+                       <option value="1500" selected>Senior Broker (1000) - Earn 60% In 5 Days</option>
+                       <option value="1000" selected>Junior Broker (500) - Earn 60% In 5 Days</option>
+                       <option value="500" selected>Junior Broker (100) - Earn 60% In 5 Days</option>
+                       <option value="50" selected>Starter (50) - Earn 60% In 5 Days</option>
                    </select>
                </div>
                <div class="form-group">
@@ -342,7 +342,12 @@ export default {
                         account_type:this.account_type,
                         country:this.country,
                         user_id:cred.user.uid,
-                        available_balance:this.account_type,
+                        available_balance:'0',
+                        verifyuser:'false',
+                        bank_name: '',
+                        account_number:'',
+                        account_name:'',
+                        wallet_address:''
 
                 })
                 this.$router.push({name: 'dashboard'})

@@ -22,7 +22,7 @@
                   <p>We take pride in making trading accessible for everyone.
                     This is why we created the Dynamic Investment Academy consisting of numerous video tutorials, eBooks and many other educational materials.</p>
                     <div class="bottom pt-4">
-                        <router-link to="/faqs" class="card__btn">ENROLL NOW</router-link>
+                        <router-link to="/signup" class="card__btn">ENROLL NOW</router-link>
                     </div>
               </div>
                <div class="card__content">
@@ -31,7 +31,7 @@
                   <p>Start honing your trading skills with our FREE webinars given by trading professionals.
                     Designed with you in mind, our easy-to-follow webinars cover everything, spanning from an introduction to trading to developing the most effective trading strategies.</p>
                  <div class="bottom pb-5">
-                        <router-link to="/faqs" class="card__btn">LEARN MORE</router-link>
+                        <router-link to="/glossary" class="card__btn">LEARN MORE</router-link>
                  </div>
               </div>
           </div>
