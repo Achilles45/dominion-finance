@@ -97,6 +97,7 @@
                             <div v-if="success" class="alert alert-success">
                                 {{ success }}
                             </div>
+                            <small>If you want to make your withdrawal in bitcoin, please reach out to your acctoung manager</small>
                     <button type="submit" class="withraw_btn">Transfer Now</button>
                 </form>
                    </div>

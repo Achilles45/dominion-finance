@@ -28,6 +28,7 @@
              <div class="col-md-2"></div>
              <div class="col-md-2 text-center contact">
                  <h6>Head Office: 2609 W. Orangethrope Ave, Fullerton, CA 90621.</h6>
+                 <h6>Phone Number: +1 (607) 258-5131</h6>
                  <h6 span class="span">Terms of Use <br> Privacy Policy</h6>
                  <img src="../assets/images/shield.png" class="img-fluid" alt="">
              </div>
